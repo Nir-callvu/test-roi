@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="stylesheets/company.css">
+	</head>
+	
+	<body><div id="symbol"></div><div id="title"></div>
+		
+		<table>
+					  <ul>
+						 
+						  <li><a href="/main_page">Main</a></li>
+						  <li><a href="/browse_all_jobs"> Browse all jobs  </a></li>
+						  <li><a class ="selected">Personal info  </a></li>
+						  <li><a href="/add_company">Add a company  </a></li>
+						  <li><a href="/create_job">Post a new job  </a></li>
+						  <li><a href="/leave_feedback">Leave feedback  </a></li>
+					      <ul class="login">
+						  {%if is_logged==False%}
+							<li><a href="/user_registration">Register </a></li> 
+							<li><a href="/user_login">Log in </a></li>    
+						  {%endif%}
+						  {%if is_logged!=False%}					
+								<li><a class="hi_nickname">Hi {{is_logged}}</a></li>
+								<li><a href="/user_logout">Log out</a></li>    					
+						  {%endif%}
+						  </ul>
+					  </ul>
+				
+		</table>
+		
+		
+		<h1 class="center_title"> Hi {{is_logged}}, welcome to your personal info! </h1>
+
+		<h2 class="center_title"> Jobs you applied for: </h2>
+		<table class="tables">
+		
+		 <tr></tr>
+		 <tr></tr>
+			
+			 
+            <tr class="tables_title">
+				<td> Job Title</td>
+                <td> Company </td>
+				
+            </tr>
+				
+				
+						
+						{% for job in list_of_jobs %} 
+								<tr class="tables_values">
+						
+								<td class="tables"> {{job[1]}} </td>
+								<td class="tables"> {{job[2]}} </td>
+                            	<td class="tables_right">
+									<form action="/remove_nominee" method="post">
+										<input type="hidden" name="job_to_remove" value="{{ job[0] }}">
+										<input type="submit" value="Remove application" id="wide">
+									</form>
+								</td>	
+							{{endif}}
+							</tr>
+						{% endfor %}		
+    <tr>	 	
+	<td> <form action="/update_user" method="get">
+							<input type="submit" value="Edit your skills" id = "wide">
+					</form></td>  <td></td><td></td>
+    </tr>
+
+        </table>
+		</body>
+		</html>

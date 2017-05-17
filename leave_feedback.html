@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="stylesheets/company.css">
+	</head>
+	<body><div id="symbol"></div><div id="title"></div>
+		
+		
+	
+            <table>
+				 
+					  <ul>
+						 
+						  <li><a href="/main_page">Main</a></li>
+						  <li><a href="/browse_all_jobs">Browse all jobs</a></li>
+						  <li><a href="/personal_info">Personal info</a></li>
+						   <li><a href="/add_company"> Add company</a></li>
+						  <li><a href="/create_job">Post a new job</a></li>
+						 <li><a class ="selected">Leave feedback</a></li>
+						   <ul class="login">
+						  {%if is_logged==False%}
+							<li><a href="/user_registration">Register </a></li> 
+							<li><a href="/user_login">Log in</a></li>    
+						  {%endif%}
+						  {%if is_logged!=False%}					
+								<li> <a class="hi_nickname"> Hi {{is_logged}}</a></li>
+								<li><a href="/user_logout">Log out</a></li>    					
+						  {%endif%}
+						  </ul>
+					  </ul>
+						  
+					  </ul>
+				
+			</table>
+			
+			
+			
+								
+		<tr>
+                    <td>
+						<h1 class="center_title">We want to know what you think!</h1>
+					</td>
+                </tr>  
+			<table class="tables">
+           		<tr>
+				</tr>
+				
+                <tr class="tables_values">
+					<td class="tables_register">
+						Name:
+					</td>
+					<td>
+						<input type="text">
+					</td>				
+				</tr>
+				<tr class="tables_values">
+					<td class="tables_register">
+						Feedback:
+						</td>
+						<td>
+						<textarea rows="4" cols="30"> </textarea>
+											
+					</td>				
+				</tr>
+                <tr>
+                    <td>
+								<form action="/main_page" method="get">
+							<input type="submit" value="Send" >
+					</form>
+					</td>
+                    <td>
+					</td>
+                </tr>
+            </table>
+      
+		
+
+	</body>
+</html>
+

@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="/stylesheets/company.css">
+	</head>
+	
+	<body><div id="symbol"></div><div id="title"></div>
+	
+		<table>
+					
+					  <ul>
+						 
+						  <li><a href="/main_page">Main</a></li>
+						  <li><a class ="selected"> Browse all jobs</a></li>
+						  <li><a href="/personal_info">Personal info</a></li>
+						  <li><a href="/add_company">Add a company</a></li>
+						  <li><a href="/create_job">Post a new job</a></li>
+						  <li><a href="/leave_feedback">Leave feedback</a></li>
+					      <ul class="login">
+						  {%if is_logged==False%}
+							<li><a href="/user_registration">Register </a></li> 
+							<li><a href="/user_login">Log in</a></li>    
+						  {%endif%}
+						  {%if is_logged!=False%}					
+								<li><a class="hi_nickname">Hi {{is_logged}} </a></li>
+								<li><a href="/user_logout">Log out</a></li>    					
+						  {%endif%}
+						  </ul>
+							</ul>
+				
+		</table>
+						
+		<tr>
+                    <td>
+						<h1 class="center_title">Find a Job</h1>
+					</td>
+                </tr>       
+						
+		<table class="tables">
+			{% if is_logged %}
+			 
+						<tr class="tables_title">   
+							<td > Job Title </td>
+							<td >Company </td>
+							<td> Suitabilty </td>
+							
+						</tr>
+						<tr></tr>
+
+
+				{% for i in range(len_of_list) %}
+						<tr class="tables_values">
+	  
+							<td class="tables"> {{ list_of_jobs[i][1] }} </td>
+							<td class="tables"> {{ list_of_jobs[i][2] }} </td>
+							<td  class="tables"> {{ list_of_jobs[i][3] }} </td>
+                            
+							<td class="tables_right">						
+                                    {% if list_of_jobs[i][4]==False %}  
+								
+									<form action="/create_nominee" method="post">
+										<input type="hidden" name="job_to_apply" value="{{ list_of_jobs[i][0] }}">
+										<input type="submit" value="Apply now!" id="wide">
+									</form>
+							
+                                    {%endif%}
+									{% if list_of_jobs[i][4]!=False %}  
+								
+									Applied
+							
+                                    {%endif%}
+									
+							</td>
+						</tr>
+				{% endfor %}
+								
+			{%endif%}
+			
+			{%if is_logged==False%}
+				<tr class="small_title">  <td colspan="2"> Want to see how suitable you are for these positions?	<a href="/user_registration">Register Now! </td></a> </tr> 	
+			<tr class="tables_title">
+				<td  > Job Title</td>
+                <td  > Company </td>		
+            </tr>
+
+				{% for i in range(len_of_list) %}
+						<tr class="tables_values">
+						{% for j in range (1,3) %}
+							<td  class="tables"> {{ list_of_jobs[i][j] }} </td>						
+						{% endfor %}	
+						</tr>
+				{% endfor %}
+			{%endif%}
+         {%if is_logged==False%}
+        <br><br>
+
+				
+		<tr> </tr>
+		{%endif%}
+		
+
+           
+					<tr class="tables_values"><td colspan="2"> Want to search jobs by a specific recruiter? pick one: 
+		<form action="/browse_jb_recruiter" method="post">
+			
+				<select name="chosen_rec">
+					{% for recruiter in list_of_rec %} 
+						<option value = {{ recruiter }}> {{ recruiter }} </option>
+					{%endfor%}     
+				</select> 
+		
+				<input type="submit" value="Search" class="important_button"/> </td></tr>
+		
+			<tr></tr><tr></tr>
+				<tr class="tables_values"><td colspan="2">Still no luck finding a job?  <a href="http://www.alljobs.co.il">Try here</a> </td></tr>
+		</td></tr>
+			
+		</form>
+		</table>
+			
+		</body>
+		</html>

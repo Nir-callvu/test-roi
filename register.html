@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="stylesheets/company.css">
+	</head>
+	<body> <div id="symbol"></div><div id="title"></div>
+		<table>
+					  <ul>
+						 
+						   <li><a href="/main_page">Main</a></li>
+						  <li><a href="/browse_all_jobs"> Browse all jobs</a></li>
+						  <li><a href="/personal_info">Personal info</a></li>
+						  <li><a href="/add_company">Add a company</a></li>
+						  <li><a href="/create_job">Post a new job</a></li>
+						  <li><a href="/leave_feedback">Leave feedback</a></li>
+					      <ul class="login">
+						  {%if is_logged==False%}
+							<li><a href="/user_registration">Register </a></li> 
+							<li><a href="/user_login">Log in</a></li>    
+						  {%endif%}
+						  {%if is_logged!=False%}					
+								<li><a class="hi_nickname">Hi {{is_logged}} </a></li>
+								<li><a href="/user_logout">Log out</a></li>    					
+						  {%endif%}
+						  </ul>
+					  </ul>
+				
+			</table>
+								
+						
+		<tr>
+                    <td>
+						<h1 class="center_title">Registration</h1>
+					</td>
+                </tr>     
+		<form action="register_in_db" method="post">
+            <table class="tables">
+
+                 <tr>
+                    <td>
+						<h2> Welcome to Blue Sky Jobs! </h2>
+					</td>
+                </tr>
+				
+				<tr>
+					<td>
+						<h3>Please register:</h3>
+					</td>
+				</tr>
+				<tr>
+				</tr>
+                <tr>
+					<td>
+						How should we call you?
+						<input type="text" name="new_user_nickname">
+					</td>
+				
+				</tr>
+
+                <tr>
+                    <td>
+						Gender
+						<input type="radio" name="new_user_gender" value="male" checked>Male
+						<input type="radio" name="new_user_gender" value="female">Female
+					</td>
+                </tr>
+
+                
+				<tr>
+					<td>
+						python:
+						</td> <td>
+						<select name="new_user_python">
+						{% for i in range(0,11) %} 
+						<option value={{i}}> {{i}} </option>
+						{%endfor%}
+						</select>
+					</td>
+				
+				</tr>
+				<tr>
+					<td>
+						statistics:
+						</td> <td>
+						<select name="new_user_statistics">
+						{% for i in range(0,11) %} 
+						<option value={{i}}> {{i}} </option>
+						{%endfor%}
+						</select>
+					</td>
+				
+				</tr>
+				<tr>
+					<td>
+						java:
+					</td> <td>
+						<select name="new_user_java">
+						{% for i in range(0,11) %} 
+						<option value={{i}}> {{i}} </option>
+						{%endfor%}
+						</select>
+					</td>
+				
+				</tr>
+				<tr>
+					<td>
+						r:</td> <td>
+						<select name="new_user_r">
+						{% for i in range(0,11) %} 
+						<option value={{i}}> {{i}} </option>
+						{%endfor%}
+						</select>
+					</td>
+				
+				</tr>
+				<tr>
+					<td>
+						sql:</td> <td>
+						<select name="new_user_sql_skill">
+						{% for i in range(0,11) %} 
+						<option value={{i}}> {{i}} </option>
+						{%endfor%}
+						</select>
+					</td>
+				
+				</tr>
+				<tr>
+					<td>
+						databases:</td> <td>
+						<select name="new_user_databases_skill">
+						{% for i in range(0,11) %} 
+						<option value={{i}}> {{i}} </option>
+						{%endfor%}
+						</select>
+					</td>
+				
+				</tr>
+				<tr>
+					<td>
+						presentation:</td> <td>
+						<select name="new_user_presentation">
+						{% for i in range(0,11) %} 
+						<option value={{i}}> {{i}} </option>
+						{%endfor%}
+						</select>
+					</td>
+				
+				</tr>
+				<tr>
+					<td>
+						data analysis:</td> <td>
+						<select name="new_user_analysis">
+						{% for i in range(0,11) %} 
+						<option value={{i}}> {{i}} </option>
+						{%endfor%}
+						</select>
+					</td>
+				
+				</tr>		
+				<tr>
+					<td>
+						finance:</td> <td>
+						<select name="new_user_finance">
+						{% for i in range(0,11) %} 
+						<option value={{i}}> {{i}} </option>
+						{%endfor%}
+						</select>
+					</td>
+				
+				</tr>		
+				<tr>
+					<td>
+						marketing:</td> <td>
+						<select name="new_user_marketing">
+						{% for i in range(0,11) %} 
+						<option value={{i}}> {{i}} </option>
+						{%endfor%}
+						</select>
+					</td>
+				
+				</tr>		
+				<tr>
+					<td>
+						leadership:</td> <td>
+						<select name="new_user_leadership">
+						{% for i in range(0,11) %} 
+						<option value={{i}}> {{i}} </option>
+						{%endfor%}
+						</select>
+					</td>
+				
+				</tr>		
+                <tr>
+                    <td>
+						<input type="submit" value="Submit" class="important_button"/>  
+					</td>
+                    <td>
+					</td>
+                </tr>
+            </table>
+        </form>
+		</div>
+
+	</body>
+</html>
+

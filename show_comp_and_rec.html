@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="stylesheets/company.css">
+	</head>
+	
+	<body><div id="symbol"></div><div id="title"></div>
+        <table>
+					  <ul>
+						 
+						  <li><a href="/main_page">Main</a></li>
+						  <li><a href="/browse_all_jobs"> Browse all jobs</a></li>
+						  <li><a href="/personal_info">Personal info</a></li>
+						  <li><a href="/add_company">Add a company</a></li>
+						  <li><a href="/create_job">Post a new job</a></li>
+						  <li><a href="/leave_feedback">Leave feedback</a></li>
+
+					      <ul class="login">
+						  {%if is_logged==False%}
+							<li><a href="/user_registration">Register </a></li> 
+							<li><a href="/user_login">Log in</a></li>    
+						  {%endif%}
+						  {%if is_logged!=False%}					
+								<li><a class="hi_nickname">Hi {{is_logged}} {{is_logged}}</a></li>
+								<li><a href="/user_logout">Log out</a></li>    					
+						  {%endif%}
+						  </ul>
+					  </ul>
+				
+			</table>
+		<div id="box1">
+		 <table class="tables">
+            <tr class="tables" >
+                <td> company name</td>
+				<td> company description</td>
+				<td> recruiter name</td>
+            </tr>
+
+            {% for curr_company in list_of_companies %}
+				<tr class="tables_values>
+					<td>{{curr_company.brand }} </td>
+					<td>{{curr_company.description }} </td>
+					<td>{{curr_company.recruiter }}
+						<form action="/main" method="post">
+							<input type="hidden" name="rec_mail" value="{{curr_company.recruiter }}">
+							<input type="submit" value="{{curr_company.recruiter }}" class="important_button"/>
+						</form>
+					</td>
+				</tr>
+			{% endfor %}
+
+        </table>
+		</div>
+		</body>
+		</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="stylesheets/company.css">
+	</head>
+	<body> <div id="symbol"></div><div id="title"></div>
+		
+		<table>
+					  <ul>
+						  <li><a href ="/main_page">Main </a></li>
+						  <li><a href="/browse_all_jobs">Browse all jobs</a></li>
+						  <li><a href="/personal_info">Personal info</a></li>
+						  <li><a href="/add_company">Add a company</a></li>
+						  <li><a class ="selected">Post a new job</a></li>
+						  <li><a href="/leave_feedback">Leave feedback</a></li>
+					      <ul class="login">
+						  {%if is_logged==False%}
+							<li><a href="/user_registration">Register </a></li> 
+							<li><a href="/user_login">Log in </a></li>    
+						  {%endif%}
+						  {%if is_logged!=False%}					
+								<li><a>Hi {{is_logged}}</a></li>
+								<li><a href="/user_logout">Log out </a></li>    					
+						  {%endif%}
+						  </ul>
+					  </ul>
+				
+			</table>
+		
+		<form class="tables" action="/create_job_in_db" method="post">
+				<tr>
+                    <td>
+						<h1 class="center_title">Post a new job</h1>
+					</td>
+                </tr>           
+		   <table class="tables">
+      			<tr class="tables_title">
+					<td>
+						Job details:
+					</td>
+				</tr>
+				<tr></tr>
+					                
+				<tr class="tables_register">
+					<td class="tables_register">
+						Job title: </td><td class="tables_register">
+						<input type="text" name="new_job_title">				
+					</td>
+				</tr>
+				
+					<tr class="tables_register"><td class="tables_register"> Company: </td>
+					<td class="tables_register"><select id="chosen_company" name="chosen_company">
+						{% for company in list_of_comp %} 
+							<option value = {{ company.brand }}> {{ company.brand }} </option>
+						{%endfor%}     
+					</select> 
+					</td></tr>
+
+				
+                <tr class="tables_title">
+					<td>
+						Job Requierments:
+					</td>
+				</tr>
+				<tr class="smaller_title">
+                    <br>
+                    <td colspan="2">
+						Please insert a number between 1-10.<br>
+						If the skill is irellevant, insert "0"
+						
+					</td>
+                </tr>
+				<tr></tr>
+				
+				
+				<tr class="tables_values">
+					<td class="tables_register">
+						python:
+						</td> <td class="tables_register">
+						<select name="new_job_python">
+						{% for i in range(0,11) %} 
+						<option value={{i}}> {{i}} </option>
+						{%endfor%}
+						</select>
+					</td>
+				
+				</tr>
+				<tr class="tables_values">
+					<td class="tables_register">
+						statistics:
+						</td> <td class="tables_register">
+						<select name="new_job_statistics">
+						{% for i in range(0,11) %} 
+						<option value={{i}}> {{i}} </option>
+						{%endfor%}
+						</select>
+					</td>
+				
+				</tr>
+				<tr class="tables_values">
+					<td class="tables_register">
+						java:
+					</td> <td class="tables_register">
+						<select name="new_job_java">
+						{% for i in range(0,11) %} 
+						<option value={{i}}> {{i}} </option>
+						{%endfor%}
+						</select>
+					</td>
+				
+				</tr>
+				<tr class="tables_values">
+					<td class="tables_register">
+						r:</td> <td class="tables_register">
+						<select name="new_job_r">
+						{% for i in range(0,11) %} 
+						<option value={{i}}> {{i}} </option>
+						{%endfor%}
+						</select>
+					</td>
+				
+				</tr>
+				<tr class="tables_values">
+					<td class="tables_register">
+						sql:</td> <td class="tables_register">
+						<select name="new_job_sql_skill">
+						{% for i in range(0,11) %} 
+						<option value={{i}}> {{i}} </option>
+						{%endfor%}
+						</select>
+					</td>
+				
+				</tr>
+				<tr class="tables_values">
+					<td class="tables_register">
+						databases:</td> <td class="tables_register">
+						<select name="new_job_databases_skill">
+						{% for i in range(0,11) %} 
+						<option value={{i}}> {{i}} </option>
+						{%endfor%}
+						</select>
+					</td>
+				
+				</tr>
+				<tr class="tables_values">
+					<td class="tables_register">
+						presentation:</td> <td class="tables_register">
+						<select name="new_job_presentation">
+						{% for i in range(0,11) %} 
+						<option value={{i}}> {{i}} </option>
+						{%endfor%}
+						</select>
+					</td>
+				
+				</tr>
+				<tr class="tables_values">
+					<td class="tables_register">
+						data analysis:</td> <td class="tables_register">
+						<select name="new_job_analysis">
+						{% for i in range(0,11) %} 
+						<option value={{i}}> {{i}} </option>
+						{%endfor%}
+						</select>
+					</td>
+				
+				</tr>		
+				<tr class="tables_values">
+					<td class="tables_register">
+						finance:</td> <td class="tables_register">
+						<select name="new_job_finance">
+						{% for i in range(0,11) %} 
+						<option value={{i}}> {{i}} </option>
+						{%endfor%}
+						</select>
+					</td>
+				
+				</tr>		
+				<tr class="tables_values">
+					<td class="tables_register">
+						marketing:</td> <td class="tables_register">
+						<select name="new_job_marketing">
+						{% for i in range(0,11) %} 
+						<option value={{i}}> {{i}} </option>
+						{%endfor%}
+						</select>
+					</td>
+				
+				</tr>		
+				<tr class="tables_values">
+					<td class="tables_register">
+						leadership:</td> <td class="tables_register">
+						<select name="new_job_leadership">
+						{% for i in range(0,11) %} 
+						<option value={{i}}> {{i}} </option>
+						{%endfor%}
+						</select>
+					</td>
+				
+				</tr>			
+                <tr class="tables_values">
+                    <td class="tables_register">
+						<input type="submit" value="Submit" class="important_button"/>  
+					</td>
+                    <td class="tables_register">
+					</td>
+                </tr>
+				</table>
+            
+        </form>
+		
+	</body>
+</html>
+

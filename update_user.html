@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="stylesheets/company.css">
+	</head>
+	<body><div id="symbol"></div><div id="title"></div>
+
+	<table>
+					  <ul>
+						 
+						  <li><a href="/main_page">Main</a></li>
+						  <li><a href="/browse_all_jobs"> Browse all jobs</a></li>
+						  <li><a href="/personal_info">Personal info</a></li>
+						  <li><a href="/add_company">Add a company</a></li>
+						  <li><a href="/create_job">Post a new job</a></li>
+						  <li><a href="/leave_feedback">Leave feedback</a></li>
+
+					      <ul class="login">
+						  
+						  					
+								<li><a class="hi_nickname">Hi {{user_to_update.email}}</a></li>
+								<li><a href="/user_logout">Log out</a></li>    					
+						  
+						  </ul>
+					  </ul>
+				
+			</table>
+			
+			<tr>
+			
+                    <td>
+						<h2 class="center_title"> {{ user_to_update.nickname }}, upgrade your skills! </h2>
+					</td>
+                </tr>
+				<tr>
+				</tr>
+				<tr>
+				</tr>
+			<form action="update_user_in_db" method="post">
+           
+		   <table class="tables">
+			
+						<tr class="tables_title">   
+							<td> Skill       </td>
+							<td> Old value  </td>
+							<td>  New value </td>
+							
+						</tr>
+				
+				<tr class="tables_values" >					
+						<td>python:</td> 
+						<td class="tables_register_center">{{user_to_update.python}}</td>
+						<td class="tables_register_center"><select  name="user_to_update_python">
+								{% for i in range(0,11) %} 
+									<option value={{i}}> {{i}} </option>
+								{%endfor%}
+							</select>
+						</td>
+				</tr>
+				
+				<tr class="tables_values">					
+						<td>statistics:</td> 
+						<td class="tables_register_center">{{user_to_update.statistics}}</td>
+						<td class="tables_register_center"><select name="user_to_update_statistics">
+								{% for i in range(0,11) %} 
+									<option value={{i}}> {{i}} </option>
+								{%endfor%}
+							</select>
+						</td>
+				</tr>
+				
+				<tr class="tables_values">					
+						<td>java:</td> 
+						<td class="tables_register_center">{{user_to_update.java}}</td>
+						<td class="tables_register_center"><select name="user_to_update_java">
+								{% for i in range(0,11) %} 
+									<option value={{i}}> {{i}} </option>
+								{%endfor%}
+							</select>
+						</td>
+				</tr>
+				
+				<tr class="tables_values">					
+						<td>r:</td> 
+						<td class="tables_register_center">{{user_to_update.r}}</td>
+						<td class="tables_register_center"><select name="user_to_update_r">
+								{% for i in range(0,11) %} 
+									<option value={{i}}> {{i}} </option>
+								{%endfor%}
+							</select>
+						</td>
+				</tr>
+				
+				<tr class="tables_values">					
+						<td>sql:</td> 
+						<td class="tables_register_center">{{user_to_update.sql_skill}}</td>
+						<td class="tables_register_center"><select name="user_to_update_sql_skill">
+								{% for i in range(0,11) %} 
+									<option value={{i}}> {{i}} </option>
+								{%endfor%}
+							</select>
+						</td>
+				</tr>
+				
+				<tr class="tables_values">					
+						<td>databases:</td> 
+						<td class="tables_register_center">{{user_to_update.databases_skill}}</td>
+						<td class="tables_register_center"><select name="user_to_update_databases_skill">
+								{% for i in range(0,11) %} 
+									<option value={{i}}> {{i}} </option>
+								{%endfor%}
+							</select>
+						</td>
+				</tr>
+				
+				<tr class="tables_values">					
+						<td>presentation:</td> 
+						<td class="tables_register_center">{{user_to_update.presentation}}</td>
+						<td class="tables_register_center"><select name="user_to_update_presentation">
+								{% for i in range(0,11) %} 
+									<option value={{i}}> {{i}} </option>
+								{%endfor%}
+							</select>
+						</td>
+				</tr>
+				
+				<tr class="tables_values">					
+						<td>data analysis:</td> 
+						<td class="tables_register_center">{{user_to_update.dataanalysis}}</td>
+						<td class="tables_register_center"><select name="user_to_update_dataanalysis">
+								{% for i in range(0,11) %} 
+									<option value={{i}}> {{i}} </option>
+								{%endfor%}
+							</select>
+						</td>
+				</tr>
+				
+				<tr class="tables_values">					
+						<td>finance:</td> 
+						<td class="tables_register_center">{{user_to_update.finance}}</td>
+						<td class="tables_register_center"><select name="user_to_update_finance">
+								{% for i in range(0,11) %} 
+									<option value={{i}}> {{i}} </option>
+								{%endfor%}
+							</select>
+						</td>
+				</tr>
+				
+				<tr class="tables_values">					
+						<td>marketing:</td> 
+						<td class="tables_register_center">{{user_to_update.marketing}}</td>
+						<td class="tables_register_center"><select name="user_to_update_marketing">
+								{% for i in range(0,11) %} 
+									<option value={{i}}> {{i}} </option>
+								{%endfor%}
+							</select>
+						</td>
+				</tr>
+				<tr class="tables_values">					
+						<td>leadership:</td> 
+						<td class="tables_register_center">{{user_to_update.leadership}}</td>
+						<td class="tables_register_center"><select name="user_to_update_leadership">
+								{% for i in range(0,11) %} 
+									<option value={{i}}> {{i}} </option>
+								{%endfor%}
+							</select>
+						</td>
+				</tr>
+				<tr class="tables_title">
+                    <td></td>
+					<td>
+						<input type="submit" value="Submit">  
+					</td>
+                    <td>
+					</td>
+                </tr>
+            </table>
+        </form>
+	</body>
+</html>
+
